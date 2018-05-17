@@ -1,1 +1,6 @@
-# EDULYNX
+To run:
+
+```
+$ ./gradlew bootRun
+```
+
