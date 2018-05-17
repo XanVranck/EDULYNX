@@ -27,5 +27,7 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // Required for Kotlin integration
     compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile("mysql:mysql-connector-java")
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
