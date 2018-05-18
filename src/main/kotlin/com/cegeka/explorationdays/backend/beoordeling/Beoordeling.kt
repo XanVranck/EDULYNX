@@ -9,14 +9,14 @@ import javax.persistence.Table
 class Beoordeling {
 
     @Column(name = "rating")
-    var rating: String = ""
+    var rating: Double = 0.0
 
     @Column(name = "comment")
     var comment: String = ""
 
     constructor() {}
 
-    constructor(rating: String, comment: String) {
+    constructor(rating: Double, comment: String) {
         this.rating = rating
         this.comment = comment
     }

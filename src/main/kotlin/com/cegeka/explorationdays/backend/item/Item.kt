@@ -32,23 +32,19 @@ class Item {
     @Column(name = "beoordelingen")
     var beoordelingen: Beoordeling? = null
 
-    @Column(name = "thumbnail")
-    var thumbnail: Byte? = null
-
     @Column(name = "omschrijving")
     var omschrijving: String = ""
 
 
     constructor() {}
 
-    constructor(naam: String, type: ItemType, links: List<String>, technologie: List<Tags>, niveau: Niveau, beoordeling: Beoordeling, thumbnail: Byte, omschrijving: String) {
+    constructor(naam: String, type: ItemType, links: List<String>, technologie: List<Tags>, niveau: Niveau, beoordeling: Beoordeling, omschrijving: String) {
         this.naam = naam
         this.type = type
         this.links = links
         this.technologiën = technologie
         this.niveau = niveau
         this.beoordelingen = beoordeling
-        this.thumbnail = thumbnail
         this.omschrijving = omschrijving
     }
 

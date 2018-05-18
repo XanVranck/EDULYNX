@@ -22,9 +22,6 @@ class User {
     @Column(name = "email")
     var email: String = ""
 
-    @Column(name = "foto")
-    var foto: Byte? = null
-
     @Column(name = "interesses")
     var interesses: List<Tags>? = null
 
@@ -33,11 +30,10 @@ class User {
 
     constructor() {}
 
-    constructor(naam: String, leeftijd: Int, email: String, foto: Byte, interesses: List<Tags>?, favorieten: List<Item>?) {
+    constructor(naam: String, leeftijd: Int, email: String, interesses: List<Tags>?, favorieten: List<Item>?) {
         this.naam = naam
         this.leeftijd = leeftijd
         this.email = email
-        this.foto = foto
         this.interesses = interesses
         this.favorieten = favorieten
     }
