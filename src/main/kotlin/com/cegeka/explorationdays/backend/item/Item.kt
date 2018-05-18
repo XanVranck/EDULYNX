@@ -3,9 +3,7 @@ package com.cegeka.explorationdays.backend.item
 import com.cegeka.explorationdays.backend.beoordeling.Beoordeling
 import com.cegeka.explorationdays.backend.links.Link
 import com.cegeka.explorationdays.backend.niveau.Niveau
-import com.cegeka.explorationdays.backend.tags.Tags
 import com.cegeka.explorationdays.backend.technologie.Technologie
-import java.util.*
 import javax.persistence.*
 
 @Entity
@@ -37,7 +35,7 @@ class Item {
 
     @OneToMany(cascade = arrayOf(CascadeType.ALL), orphanRemoval = true)
     @JoinColumn(name = "BEOORDELING_ID", nullable = true)
-    var beoordelingen: Beoordeling? = null
+    var beoordelingen: List<Beoordeling> = emptyList()
 
     @Column(name = "OMSCHRIJVING")
     var omschrijving: String = ""
@@ -45,7 +43,7 @@ class Item {
 
     constructor() {}
 
-    constructor(naam: String, type: ItemType, links: List<Link>, technologie: List<Technologie>, niveau: Niveau, omschrijving: String, beoordeling: Beoordeling?) {
+    constructor(naam: String, type: ItemType, links: List<Link>, technologie: List<Technologie>, niveau: Niveau, omschrijving: String, beoordeling: List<Beoordeling>) {
         this.naam = naam
         this.type = type
         this.links = links

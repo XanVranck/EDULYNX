@@ -43,9 +43,9 @@ class EduLynxService {
         val technologie: List<Technologie> = listOf(Technologie("Dark matters"))
         val technologie1: List<Technologie> = listOf(Technologie("Retie underground"))
         val technologie2: List<Technologie> = listOf(Technologie("Spring"))
-        val item1 = Item("How to save the world", ItemType.BOEK, links, technologie, Niveau.WIZARD, "Did you google it", Beoordeling(2.5, "voorspelbaar"))
-        val item2 = Item("Retie for dummies as told by wim ", ItemType.ARTIKEL, links1, technologie1, Niveau.WIM, "Scifi", Beoordeling(4.5, "kon beter"))
-        val item3 = Item("Spring Kotlin", ItemType.BOEK, links2, technologie2, Niveau.WIZARD, "top", Beoordeling(4.7, "heel duidelijke tutorial"))
+        val item1 = Item("How to save the world", ItemType.BOEK, links, technologie, Niveau.WIZARD, "Did you google it", listOf(Beoordeling(2.5, "voorspelbaar")))
+        val item2 = Item("Retie for dummies as told by wim ", ItemType.ARTIKEL, links1, technologie1, Niveau.WIM, "Scifi", listOf(Beoordeling(4.5, "kon beter")))
+        val item3 = Item("Spring Kotlin", ItemType.BOEK, links2, technologie2, Niveau.WIZARD, "top", listOf(Beoordeling(4.7, "heel duidelijke tutorial")))
 
 
         return mutableListOf(item1, item2, item3)
