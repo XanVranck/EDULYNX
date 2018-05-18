@@ -9,13 +9,13 @@ import javax.validation.Valid
 
 @Transactional
 @RestController
+@CrossOrigin(origins = arrayOf("http://localhost:4000","CI00031344:4000","CI00023215:4000", "CI00014637:4000", "MBP-van-Xan.cegekanv.corp.local:4000"), maxAge = 3000)
 class Controller {
 
     @Autowired
     private lateinit var eduLynxService: EduLynxService
 
     @PostMapping("/items/add")
-    @CrossOrigin()
     fun createNewItem(@Valid @RequestBody item: Item): Unit = eduLynxService.saveItem(item)
 
     @GetMapping("/items/{id}")
@@ -33,7 +33,7 @@ class Controller {
     @DeleteMapping("/items/{id}")
     fun deleteItemBy(@Valid @RequestBody itemToDelete: Item): Unit = eduLynxService.deleteItem(itemToDelete)
 
-    @CrossOrigin(origins = arrayOf("http://localhost:4000","CI00031344:4000","CI00023215:4000", "CI00014637:4000", "NBP-van-Xan.cegekanv.corp.local:4000"), maxAge = 3000)
+
     @GetMapping("/items")
     fun getAllItems(): MutableList<Any?>? {
         return eduLynxService.getAllItems()
