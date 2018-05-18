@@ -3,7 +3,9 @@ package com.cegeka.explorationdays.backend
 import com.cegeka.explorationdays.backend.beoordeling.Beoordeling
 import com.cegeka.explorationdays.backend.item.Item
 import com.cegeka.explorationdays.backend.item.ItemType
+import com.cegeka.explorationdays.backend.links.Link
 import com.cegeka.explorationdays.backend.niveau.Niveau
+import com.cegeka.explorationdays.backend.technologie.Technologie
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.util.*
@@ -35,15 +37,16 @@ class EduLynxService {
     }
 
     fun getDummyItems():  MutableList<Any?>?{
-        val links: String = "www.google.com"
-        val links1: String = "www.retie.be"
-        val links2: String = "https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0"
-        val technologie: String = "Dark matters"
-        val technologie1: String = "Retie underground"
-        val technologie2: String = "Spring"
-        val item1 = Item("How to save the world", ItemType.BOEK, links, technologie, Niveau.WIZARD, "Did you google it")
-        val item2 = Item("Retie for dummies as told by wim ", ItemType.ARTIKEL, links1, technologie1, Niveau.WIM,  "Scifi")
-        val item3 = Item("Spring Kotlin", ItemType.BOEK, links2, technologie2, Niveau.WIZARD,  "waauww")
+        val links: List<Link> = listOf(Link("www.google.com"))
+        val links1: List<Link> = listOf(Link("www.retie.be"))
+        val links2: List<Link> = listOf(Link("https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0"))
+        val technologie: List<Technologie> = listOf(Technologie("Dark matters"))
+        val technologie1: List<Technologie> = listOf(Technologie("Retie underground"))
+        val technologie2: List<Technologie> = listOf(Technologie("Spring"))
+        val item1 = Item("How to save the world", ItemType.BOEK, links, technologie, Niveau.WIZARD, "Did you google it", Beoordeling(2.5, "voorspelbaar"))
+        val item2 = Item("Retie for dummies as told by wim ", ItemType.ARTIKEL, links1, technologie1, Niveau.WIM, "Scifi", Beoordeling(4.5, "kon beter"))
+        val item3 = Item("Spring Kotlin", ItemType.BOEK, links2, technologie2, Niveau.WIZARD, "top", Beoordeling(4.7, "heel duidelijke tutorial"))
+
 
         return mutableListOf(item1, item2, item3)
     }

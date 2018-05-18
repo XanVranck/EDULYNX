@@ -8,13 +8,13 @@ class Beoordeling {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "ID")
     var id: Int = 0
 
-    @Column(name = "rating")
+    @Column(name = "RATING")
     var rating: Double = 0.0
 
-    @Column(name = "comment")
+    @Column(name = "COMMENT")
     var comment: String = ""
 
     constructor() {}
