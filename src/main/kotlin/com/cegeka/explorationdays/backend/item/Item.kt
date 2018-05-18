@@ -8,7 +8,6 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "ITEM")
-@Access(AccessType.FIELD)
 class Item {
 
     @Id
@@ -23,18 +22,18 @@ class Item {
     var type: ItemType = ItemType.ARTIKEL
 
     @OneToMany(cascade = arrayOf(CascadeType.ALL), orphanRemoval = true)
-    @JoinColumn(name = "LINKS_ID", nullable = false)
+    @JoinColumn(name = "FK_ITEM_ID", nullable = false)
     var links: List<Link> = emptyList()
 
     @ManyToMany(cascade = arrayOf(CascadeType.ALL))
-    @JoinColumn(name = "TECHNOLOGIE_ID", nullable = false)
-    var technologiën: List<Technologie> = emptyList()
+    @JoinTable(name="ITEM_TECHNOLOGIE")
+    var technologies: List<Technologie> = emptyList()
 
     @Column(name = "NIVEAU")
     var niveau: Niveau = Niveau.JUNIOR
 
     @OneToMany(cascade = arrayOf(CascadeType.ALL), orphanRemoval = true)
-    @JoinColumn(name = "BEOORDELING_ID", nullable = true)
+    @JoinColumn(name = "FK_ITEM_ID", nullable = true)
     var beoordelingen: List<Beoordeling> = emptyList()
 
     @Column(name = "OMSCHRIJVING")
@@ -43,11 +42,11 @@ class Item {
 
     constructor() {}
 
-    constructor(naam: String, type: ItemType, links: List<Link>, technologie: List<Technologie>, niveau: Niveau, omschrijving: String, beoordeling: List<Beoordeling>) {
+    constructor(naam: String, type: ItemType, links: List<Link>, technologies: List<Technologie>, niveau: Niveau, omschrijving: String, beoordeling: List<Beoordeling>) {
         this.naam = naam
         this.type = type
         this.links = links
-        this.technologiën = technologie
+        this.technologies = technologies
         this.niveau = niveau
         this.beoordelingen = beoordeling
         this.omschrijving = omschrijving
