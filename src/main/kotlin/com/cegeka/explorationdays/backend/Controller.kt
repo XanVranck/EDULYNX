@@ -33,10 +33,10 @@ class Controller {
     @DeleteMapping("/items/{id}")
     fun deleteItemBy(@Valid @RequestBody itemToDelete: Item): Unit = eduLynxService.deleteItem(itemToDelete)
 
+    @CrossOrigin(origins = arrayOf("localhost:4000","CI00031344:8080","CI00023215:8080"), maxAge = 3000)
     @GetMapping("/items")
-    @CrossOrigin
     fun getAllItems(): MutableList<Any?>? {
-        return eduLynxService.getAllItems()
+        return eduLynxService.getDummyItems()
     }
 
 }

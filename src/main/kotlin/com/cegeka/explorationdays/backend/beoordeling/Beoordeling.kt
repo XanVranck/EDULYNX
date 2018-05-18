@@ -1,12 +1,15 @@
 package com.cegeka.explorationdays.backend.beoordeling
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Table
+import javax.persistence.*
 
 @Entity
 @Table(name = "BEOORDELING")
 class Beoordeling {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    var id: Int = 0
 
     @Column(name = "rating")
     var rating: Double = 0.0

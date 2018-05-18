@@ -7,6 +7,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "Item")
+@Access(AccessType.FIELD)
 class Item {
 
     @Id
@@ -21,16 +22,16 @@ class Item {
     var type: ItemType = ItemType.ARTIKEL
 
     @Column(name = "links")
-    var links: List<String>? = null
+    var links: String = ""
 
     @Column(name = "technologie")
-    var technologiën: List<String>? = null
+    var technologiën: String = ""
 
     @Column(name = "niveau")
     var niveau: Niveau = Niveau.JUNIOR
-
-    @Column(name = "beoordelingen")
-    var beoordelingen: Beoordeling? = null
+//
+//    @Column(name = "beoordelingen")
+//    var beoordelingen: Beoordeling? = null
 
     @Column(name = "omschrijving")
     var omschrijving: String = ""
@@ -38,13 +39,14 @@ class Item {
 
     constructor() {}
 
-    constructor(naam: String, type: ItemType, links: List<String>, technologie: List<String>, niveau: Niveau, beoordeling: Beoordeling, omschrijving: String) {
+    constructor(naam: String, type: ItemType, links: String, technologie: String, niveau: Niveau, omschrijving: String) {
+        this.id = 0
         this.naam = naam
         this.type = type
         this.links = links
         this.technologiën = technologie
         this.niveau = niveau
-        this.beoordelingen = beoordeling
+//        this.beoordelingen = beoordeling
         this.omschrijving = omschrijving
     }
 
