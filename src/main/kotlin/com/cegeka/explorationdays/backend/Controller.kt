@@ -14,13 +14,7 @@ class Controller {
     @Autowired
     private lateinit var eduLynxService: EduLynxService
 
-    @GetMapping("/exploration-days-backend")
-    @CrossOrigin()
-    fun helloworld(): String {
-        return "hello world"
-    }
-
-    @PostMapping("/post")
+    @PostMapping("/items/add")
     @CrossOrigin()
     fun createNewItem(@Valid @RequestBody item: Item): Unit = eduLynxService.saveItem(item)
 

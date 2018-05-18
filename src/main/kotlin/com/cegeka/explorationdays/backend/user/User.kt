@@ -23,14 +23,14 @@ class User {
     var email: String = ""
 
     @Column(name = "interesses")
-    var interesses: List<Tags>? = null
+    var interesses: List<String>? = null
 
     @Column(name = "favorieten")
     var favorieten: List<Item>? = null
 
     constructor() {}
 
-    constructor(naam: String, leeftijd: Int, email: String, interesses: List<Tags>?, favorieten: List<Item>?) {
+    constructor(naam: String, leeftijd: Int, email: String, interesses: List<String>?, favorieten: List<Item>?) {
         this.naam = naam
         this.leeftijd = leeftijd
         this.email = email

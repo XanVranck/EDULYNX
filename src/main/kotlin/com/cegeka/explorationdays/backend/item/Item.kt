@@ -24,7 +24,7 @@ class Item {
     var links: List<String>? = null
 
     @Column(name = "technologie")
-    var technologiën: List<Tags>? = null
+    var technologiën: List<String>? = null
 
     @Column(name = "niveau")
     var niveau: Niveau = Niveau.JUNIOR
@@ -38,7 +38,7 @@ class Item {
 
     constructor() {}
 
-    constructor(naam: String, type: ItemType, links: List<String>, technologie: List<Tags>, niveau: Niveau, beoordeling: Beoordeling, omschrijving: String) {
+    constructor(naam: String, type: ItemType, links: List<String>, technologie: List<String>, niveau: Niveau, beoordeling: Beoordeling, omschrijving: String) {
         this.naam = naam
         this.type = type
         this.links = links
