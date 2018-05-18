@@ -12,15 +12,8 @@ class EduLynxRepository {
     @Autowired
     private lateinit var entityManager: EntityManager
 
-    fun insertIntoDb(value: TestJava) {
-
-        entityManager.persist(value);
-
-    }
-
     fun getAllItems(): MutableList<Any?>? {
-        return entityManager.createQuery("select t from Item t").resultList
-
+        return entityManager.createQuery("select t from Item t")?.resultList
     }
 
     fun saveItem(item: Item) {
