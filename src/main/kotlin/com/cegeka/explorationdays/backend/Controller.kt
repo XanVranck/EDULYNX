@@ -1,12 +1,11 @@
 package com.cegeka.explorationdays.backend
 
+import com.cegeka.explorationdays.backend.item.Item
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.CrossOrigin
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RestController
-import javax.persistence.Query
+import org.springframework.web.bind.annotation.*
+import java.util.*
 import javax.transaction.Transactional
+import javax.validation.Valid
 
 @Transactional
 @RestController
@@ -21,17 +20,29 @@ class Controller {
         return "hello world"
     }
 
-
     @PostMapping("/post")
     @CrossOrigin()
-    fun postingTest() {
-        eduLynxService.postToDb("test")
+    fun createNewItem(@Valid @RequestBody item: Item): Unit = eduLynxService.saveItem(item)
+
+    @GetMapping("/items/{id}")
+    fun getItemById(@PathVariable(value = "id") itemId: Long): Optional<Item> {
+        return eduLynxService.findById(itemId)
     }
 
-    @GetMapping("/getall")
+    @PutMapping("/items/{id}")
+    fun updateItemById(@PathVariable(value = "id") itemId: Long, @Valid @RequestBody newItem: Item) {
+        val item = eduLynxService.findById(itemId)
+        //update item
+        eduLynxService.updateItemById(newItem)
+    }
+
+    @DeleteMapping("/items/{id}")
+    fun deleteItemBy(@Valid @RequestBody itemToDelete: Item): Unit = eduLynxService.deleteItem(itemToDelete)
+
+    @GetMapping("/items")
     @CrossOrigin
-    fun getAllTests(): MutableList<Any?>? {
-        return eduLynxService.getAllTests()
+    fun getAllItems(): MutableList<Any?>? {
+        return eduLynxService.getAllItems()
     }
 
 }
