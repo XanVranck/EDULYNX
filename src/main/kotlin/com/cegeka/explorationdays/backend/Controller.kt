@@ -36,7 +36,7 @@ class Controller {
     @CrossOrigin(origins = arrayOf("http://localhost:4000","CI00031344:4000","CI00023215:4000", "CI00014637:4000", "NBP-van-Xan.cegekanv.corp.local:4000"), maxAge = 3000)
     @GetMapping("/items")
     fun getAllItems(): MutableList<Any?>? {
-        return eduLynxService.getDummyItems()
+        return eduLynxService.getAllItems()
     }
 
 }
