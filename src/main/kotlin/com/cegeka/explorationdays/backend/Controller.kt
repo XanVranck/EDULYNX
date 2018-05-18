@@ -1,9 +1,11 @@
 package com.cegeka.explorationdays.backend
 
 import com.cegeka.explorationdays.backend.item.Item
+import com.cegeka.explorationdays.backend.technologie.Technologie
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import java.util.*
+import javax.swing.text.html.Option
 import javax.transaction.Transactional
 import javax.validation.Valid
 
@@ -25,8 +27,8 @@ class Controller {
 
     @PutMapping("/items/{id}")
     fun updateItemById(@PathVariable(value = "id") itemId: Long, @Valid @RequestBody newItem: Item) {
-        val item = eduLynxService.findById(itemId)
-        //update item
+//        val item = eduLynxService.findById(itemId)
+//        //update item
         eduLynxService.updateItemById(newItem)
     }
 

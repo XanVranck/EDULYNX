@@ -1,6 +1,7 @@
 package com.cegeka.explorationdays.backend
 
 import com.cegeka.explorationdays.backend.item.Item
+import com.cegeka.explorationdays.backend.technologie.Technologie
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Repository
 import java.util.*

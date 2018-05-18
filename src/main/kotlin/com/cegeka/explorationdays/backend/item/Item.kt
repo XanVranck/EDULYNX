@@ -13,7 +13,7 @@ class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    var id: Int = 0
+    var id: Long = 0
 
     @Column(name = "NAAM")
     var naam: String = ""
